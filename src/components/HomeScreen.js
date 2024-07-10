@@ -41,18 +41,18 @@ function HomeScreen() {
         </div>
       </header>
 
-      <section id="departments" className="d-flex align-items-center">
+      <section id="departments" className="d-flex align-items-center" style={{ marginTop: '100px' }}>
         <div className="container">
           <div className="row">
             {departments.map((department, index) => (
               <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={index}>
                 <div
-                  className="card"
-                  style={{ cursor: "pointer" }}
+                  className="card shadow-sm border-0"
+                  style={{ cursor: "pointer", backgroundColor: '#f8f9fa', borderRadius: '10px' }}
                   onClick={() => navigate(`/login/${department.replace(/\s+/g, '-').toLowerCase()}`)}
                 >
                   <div className="card-body text-center">
-                    <h5 className="card-title">{department}</h5>
+                    <h5 className="card-title" style={{ color: '#007bff' }}>{department}</h5>
                   </div>
                 </div>
               </div>

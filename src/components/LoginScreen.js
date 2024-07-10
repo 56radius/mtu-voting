@@ -1,33 +1,34 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function LoginScreen() {
   const navigate = useNavigate();
-  const [matricNumber, setMatricNumber] = useState("");
-  const [votingNumber, setVotingNumber] = useState("");
+  const { department } = useParams();
+  const [matricNumber, setMatricNumber] = useState('');
+  const [votingNumber, setVotingNumber] = useState('');
 
   const handleLogin = () => {
     // Dummy validation logic
-    const validMatricNumber = "123456"; // Replace with actual validation logic
-    const validVotingNumber = "voting123"; // Replace with actual validation logic
+    const validMatricNumber = '123456'; // Replace with actual validation logic
+    const validVotingNumber = 'voting123'; // Replace with actual validation logic
 
     if (matricNumber === validMatricNumber && votingNumber === validVotingNumber) {
       // Show success alert
       Swal.fire({
-        icon: "success",
-        title: "Login successful!",
-        text: "Welcome Back!",
+        icon: 'success',
+        title: 'Login successful!',
+        text: 'Welcome Back!',
       });
 
       // Navigate to dashboard
-      navigate("/dashboard");
+      navigate('/dashboard');
     } else {
       // Show error alert
       Swal.fire({
-        icon: "error",
-        title: "Login failed!",
-        text: "Invalid matric number or voting number.",
+        icon: 'error',
+        title: 'Login failed!',
+        text: 'Invalid matric number or voting number.',
       });
     }
   };
@@ -44,12 +45,12 @@ function LoginScreen() {
                     <button
                       style={{
                         borderWidth: 0,
-                        background: "#fff",
+                        background: '#fff',
                       }}
                       href="index.html"
                       className="logo d-flex align-items-center w-auto"
                     >
-                   
+                      {/* Logo */}
                     </button>
                   </div>
                   <form action="" className="mt" method="post">
@@ -57,7 +58,7 @@ function LoginScreen() {
                       <div className="card-body">
                         <div className="pt-4 pb-2">
                           <h5 className="card-title text-center pb-0 fs-4">
-                            Your Department
+                            {department} Department
                           </h5>
                         </div>
 
@@ -107,8 +108,11 @@ function LoginScreen() {
 
                           <div className="col-12">
                             <p className="small mb-0">
-                              Forgot Voting Number?{" "}
-                              <a style={{ color: "green" }} onClick={() => navigate("/forgotvotingnumber")}>
+                              Forgot Voting Number?{' '}
+                              <a
+                                style={{ color: 'green' }}
+                                onClick={() => navigate('/forgotvotingnumber')}
+                              >
                                 Click Me
                               </a>
                             </p>
@@ -116,8 +120,10 @@ function LoginScreen() {
 
                           <div className="col-12">
                             <p className="small mb-0">
-                              Don't have an account?{" "}
-                              <a  style={{color: "blue"}} onClick={() => navigate("/register")}> Register Account  </a>
+                              Don't have an account?{' '}
+                              <a style={{ color: 'blue' }} onClick={() => navigate('/register')}>
+                                Register Account
+                              </a>
                             </p>
                           </div>
                         </form>
