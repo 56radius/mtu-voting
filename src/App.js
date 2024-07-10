@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-//importing the main components
+// Importing the main components
 import SplashScreen from "./components/SplashScreen";
 import HomeScreen from "./components/HomeScreen";
-
-//importing minful minutes
+import LoginScreen from "./components/LoginScreen"; // Importing the login screen component
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -22,10 +21,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route
-            path="/"
-            element={showSplash ? <SplashScreen /> : <HomeScreen />}
-          />
+          <Route path="/" element={showSplash ? <SplashScreen /> : <HomeScreen />} />
+          <Route path="/login/:department" element={<LoginScreen />} />
         </Routes>
       </div>
     </Router>
