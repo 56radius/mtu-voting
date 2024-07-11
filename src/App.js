@@ -13,6 +13,9 @@ import MyVotesScreen from "./components/Dashboard/MyVotesScreen";
 import ResultScreen from "./components/Dashboard/ResultScreen";
 import PollResultScreen from "./components/Elements/PollResultScreen"; // Import the PollResultScreen component
 
+//importing admin components
+import AdminLogin from "./components/Admin/AdminLogin";
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -35,6 +38,7 @@ function App() {
           <Route path="/my-votes" element={<MyVotesScreen />} />
           <Route path="/results" element={<ResultScreen />} />
           <Route path="/poll-result/:pollId" element={<PollResultScreen />} /> {/* Add the PollResultScreen route */}
+          <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
       </div>
     </Router>
