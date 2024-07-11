@@ -98,8 +98,8 @@ function Headerbar() {
             <header id="header" className="header fixed-top d-flex align-items-center">
                 <div className="d-flex align-items-center justify-content-between">
                     <button style={{ borderWidth: 0, marginLeft: "30px", background: "#fff" }} className="logo d-flex align-items-center">
-                        <span className="d-none d-lg-block"> Avinx </span>{" "}
-                        <span style={{ color: "green" }}> Health </span>
+                        <span style={{color: "purple"}} className="d-none d-lg-block"> MTU </span>{" "}
+                        <span style={{ color: "green" }}> VOTING </span>
                     </button>
                     <i className="bi bi-list toggle-sidebar-btn"></i>
                 </div>
