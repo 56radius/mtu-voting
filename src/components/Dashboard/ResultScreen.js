@@ -5,9 +5,9 @@ import Headerbar from "../Elements/Headerbar";
 function ResultScreen() {
   const [loading, setLoading] = useState(false);
   const [pollResults] = useState([
-    { id: 1, title: "Sports Vote", participants: 150, deadline: "July 15, 2024", status: "Closed" },
-    { id: 2, title: "Departmental Awards", participants: 100, deadline: "July 18, 2024", status: "Open" },
-    { id: 3, title: "Executives Vote", participants: 200, deadline: "July 20, 2024", status: "Open" },
+    { id: 1, title: "Sports Vote", participants: 150, deadline: "July 15, 2024", status: "Closed", created: "July 1, 2024" },
+    { id: 2, title: "Departmental Awards", participants: 100, deadline: "July 18, 2024", status: "Open", created: "July 5, 2024" },
+    { id: 3, title: "Executives Vote", participants: 200, deadline: "July 20, 2024", status: "Open", created: "July 10, 2024" },
     // Add more polls as needed
   ]);
 
@@ -33,35 +33,31 @@ function ResultScreen() {
 
         <section className="section">
           <div className="container">
-            <div className="row">
-              {/* Left Column: Polls */}
-              <div className="col-lg-6">
-                <h2>Polls</h2>
-                {pollResults.map((poll) => (
-                  <div className="card mb-4" key={poll.id}>
-                    <div className="card-body">
-                      <h5 className="card-title">{poll.title}</h5>
-                      {/* Display other poll details as needed */}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              {/* Right Column: Poll Details */}
-              <div className="col-lg-6">
-                <h2>Poll Details</h2>
-                {pollResults.map((poll) => (
-                  <div className="card mb-4" key={poll.id}>
-                    <div className="card-body">
-                      <h5 className="card-title">{poll.title}</h5>
-                      <p className="card-text">Participants: {poll.participants}</p>
-                      <p className="card-text">Deadline: {poll.deadline}</p>
-                      <p className="card-text">Status: {poll.status}</p>
-                      {/* Display other poll details as needed */}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="row mb-3">
+              {/* Headers */}
+              <div className="col-md-6"><h4>Poll</h4></div>
+              <div className="col-md-2"><h4>Participants</h4></div>
+              <div className="col-md-2"><h4>Deadline</h4></div>
+              <div className="col-md-2"><h4>Status</h4></div>
             </div>
+            {/* Poll Results */}
+            {pollResults.map((poll) => (
+              <div className="col-12 mb-3" key={poll.id}>
+                <div className="card shadow-sm h-100" style={{ height: "150px" }}>
+                  <div className="card-body" onClick={() => console.log(`Clicked on ${poll.title}`)} style={{ cursor: "pointer" }}>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <h5 className="card-title">{poll.title}</h5>
+                        <p className="card-text">Created on: {poll.created}</p>
+                      </div>
+                      <div className="col-md-2">{poll.participants}</div>
+                      <div className="col-md-2">{poll.deadline}</div>
+                      <div className="col-md-2">{poll.status}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </main>

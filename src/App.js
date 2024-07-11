@@ -11,6 +11,7 @@ import DashboardScreen from "./components/Dashboard/DashboardScreen";
 import AvailablePollScreen from "./components/Dashboard/AvailablePollScreen";
 import MyVotesScreen from "./components/Dashboard/MyVotesScreen";
 import ResultScreen from "./components/Dashboard/ResultScreen";
+import PollResultScreen from "./components/Elements/PollResultScreen"; // Import the PollResultScreen component
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/available-polls" element={<AvailablePollScreen />} />
           <Route path="/my-votes" element={<MyVotesScreen />} />
           <Route path="/results" element={<ResultScreen />} />
+          <Route path="/poll-result/:pollId" element={<PollResultScreen />} /> {/* Add the PollResultScreen route */}
         </Routes>
       </div>
     </Router>
