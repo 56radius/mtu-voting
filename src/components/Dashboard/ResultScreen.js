@@ -4,11 +4,11 @@ import Headerbar from "../Elements/Headerbar";
 
 function ResultScreen() {
   const [loading, setLoading] = useState(false);
-  const [myVotes] = useState([
-    { id: 1, title: "Sports Vote", choice: "Option 1", timestamp: "July 15, 2024" },
-    { id: 2, title: "Departmental Awards", choice: "Option 2", timestamp: "July 18, 2024" },
-    { id: 3, title: "Executives Vote", choice: "Option 1", timestamp: "July 20, 2024" },
-    // Add more votes as needed
+  const [pollResults] = useState([
+    { id: 1, title: "Sports Vote", participants: 150, deadline: "July 15, 2024", status: "Closed" },
+    { id: 2, title: "Departmental Awards", participants: 100, deadline: "July 18, 2024", status: "Open" },
+    { id: 3, title: "Executives Vote", participants: 200, deadline: "July 20, 2024", status: "Open" },
+    // Add more polls as needed
   ]);
 
   return (
@@ -32,20 +32,36 @@ function ResultScreen() {
         </div>
 
         <section className="section">
-          <h2>My Votes Results</h2>
-          <div className="row">
-            {myVotes.map((vote) => (
-              <div className="col-lg-4 col-md-6 mb-4" key={vote.id}>
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">{vote.title}</h5>
-                    <p className="card-text">My Choice: {vote.choice}</p>
-                    <p className="card-text">Timestamp: {vote.timestamp}</p>
-                    {/* Display other result details as needed */}
+          <div className="container">
+            <div className="row">
+              {/* Left Column: Polls */}
+              <div className="col-lg-6">
+                <h2>Polls</h2>
+                {pollResults.map((poll) => (
+                  <div className="card mb-4" key={poll.id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{poll.title}</h5>
+                      {/* Display other poll details as needed */}
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+              {/* Right Column: Poll Details */}
+              <div className="col-lg-6">
+                <h2>Poll Details</h2>
+                {pollResults.map((poll) => (
+                  <div className="card mb-4" key={poll.id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{poll.title}</h5>
+                      <p className="card-text">Participants: {poll.participants}</p>
+                      <p className="card-text">Deadline: {poll.deadline}</p>
+                      <p className="card-text">Status: {poll.status}</p>
+                      {/* Display other poll details as needed */}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>
