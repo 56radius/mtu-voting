@@ -74,7 +74,53 @@ function Sidebar() {
               <span>Profile</span>
             </a>
           </li>
-          <li className="nav-heading">Pages</li>
+
+          <li style={{fontWeight: "bold"}} className="nav-heading">Guides</li>
+          <li className="nav-item">
+            <a onClick={() => navigate("/help")} className="nav-link collapsed">
+              <i className="bi bi-person"></i>
+              <span>Help Center</span>
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a onClick={() => navigate("/profile")} className="nav-link collapsed">
+              <i className="bi bi-person"></i>
+              <span>FAQ</span>
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a onClick={() => navigate("/profile")} className="nav-link collapsed">
+              <i className="bi bi-person"></i>
+              <span>Privacy </span>
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a onClick={() => navigate("/profile")} className="nav-link collapsed">
+              <i className="bi bi-person"></i>
+              <span> Live Demo </span>
+            </a>
+          </li>
+
+
+
+          <li className="nav-heading">Settings</li>
+          <li className="nav-item">
+            <a onClick={() => navigate("/profile")} className="nav-link collapsed">
+              <i className="bi bi-person"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a onClick={() => navigate("/profile")} className="nav-link collapsed">
+              <i className="bi bi-person"></i>
+              <span>Delete Account</span>
+            </a>
+          </li>
+
           <li className="nav-item">
             <a onClick={handleSignOut} className="nav-link collapsed">
               <i className="bi bi-box-arrow-in-right"></i>
